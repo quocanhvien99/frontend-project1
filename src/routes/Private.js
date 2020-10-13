@@ -4,7 +4,7 @@ import './Private.css';
 
 const Private = (props) => {
     const { userInfo } = useContext(UserContext);
-    
+
     return (
         <div className="Private">
             <div className="name">Tên: {userInfo.name}</div>
