@@ -1,0 +1,60 @@
+.loader {
+	width: 100vw;
+	height: 100vh;
+	background-color: #fff;
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+.loader .circle {
+	width: 100px;
+	height: 100px;
+	position: relative;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.loader .circle div {
+	border: 5px solid;
+	border-radius: 50%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	animation-name: spin;
+	animation-iteration-count: infinite;
+	animation-fill-mode: both;
+	animation-timing-function: linear;
+}
+.loader .circle .circle-1 {
+	width: 100px;
+	height: 100px;
+	border-color: #1e90ff #fff;
+	animation-duration: 1s;
+}
+.loader .circle .circle-2 {
+	width: 80px;
+	height: 80px;
+	border-color: #ed143d #fff;
+	animation-duration: 1.5s;
+	animation-delay: 0.3s;
+}
+.loader .circle .circle-3 {
+	width: 60px;
+	height: 60px;
+	border-color: #ffa500 #fff;
+	animation-duration: 2s;
+	animation-delay: 0.6s;
+}
+@media screen and (max-width: 768px) {
+	.loader .circle {
+		transform: scale(2, 2);
+	}
+}
+@keyframes spin {
+	0% {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}

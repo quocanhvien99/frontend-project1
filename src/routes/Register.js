@@ -1,12 +1,15 @@
 import React, {useState} from 'react';
+import { NotificationManager } from 'react-notifications';
 import './Register.css';
 import Modal from '../components/Modal';
+import Spinner from '../components/Spinner';
 
 const Register = ({ history }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [modalState, setModal] = useState({ isActive:false });
+    const [isLoading, setIsLoading] = useState(false);
 
     const updateName = (event) => {
         setName(event.target.value);
@@ -17,7 +20,8 @@ const Register = ({ history }) => {
     const updatePassword = (event) => {
         setPassword(event.target.value);
     };
-    const registerHandler = async () => {        
+    const registerHandler = async () => {    
+        setIsLoading(true);    
         const data = { name, email, password};
         const res = await fetch('https://api-project1-quocanh.herokuapp.com/api/user/register', {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -28,8 +32,10 @@ const Register = ({ history }) => {
             body: JSON.stringify(data) // body data type must match "Content-Type" header
         })
         const resData = await res.text();
+        setIsLoading(false);
         if (res.status === 200) {            
             history.push('/login');
+            NotificationManager.success('Đăng ký thành công!', 'Successful!');
             return;
         }
         setModal({ isActive:true, content: resData });
@@ -48,6 +54,7 @@ const Register = ({ history }) => {
                 <div id="submit-btn" onClick={registerHandler}>Đăng Ký</div>
             </form>
             <Modal {...modalState} setModel={setModal} />
+            {isLoading && <Spinner/>}
         </div>
     );
 }
