@@ -5,21 +5,16 @@ export const UserProvider = (props) => {
     const [isLogin, setIsLogin] = useState(false);
     const [userInfo, setUserInfo] = useState({});    
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        if(token) {
-            (async () => {
-                const res = await fetch('https://api-project1-quocanh.herokuapp.com/api/user/info', {
-                    headers: {
-                        'auth-token': token
-                    }
-                });
-                if (res.status === 200) {
-                    setIsLogin(true);
-                    const resData = await res.json();
-                    setUserInfo(resData);
-                }
-            })();
-        }
+        (async () => {
+            const res = await fetch('http://localhost:3000/api/user/info', {
+                credentials: 'include'
+            });
+            if (res.status === 200) {
+                setIsLogin(true);
+                const resData = await res.json();
+                setUserInfo(resData);
+            }
+        })();
     }, [isLogin])
     
     

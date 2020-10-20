@@ -23,8 +23,9 @@ const Login = ({history, location}) => {
     const loginHandler = async () => {  
         setIsLoading(true);      
         const data = { email, password};
-        const res = await fetch('https://api-project1-quocanh.herokuapp.com/api/user/login', {
+        const res = await fetch('http://localhost:3000/api/user/login', {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            credentials: 'include',
             headers: {
             'Content-Type': 'application/json'
             // 'Content-Type': 'application/x-www-form-urlencoded',
@@ -34,7 +35,6 @@ const Login = ({history, location}) => {
         const resData = await res.text();
         setIsLoading(false);
         if (res.status === 200) {
-            localStorage.setItem('token', resData);
             setIsLogin(!isLogin);
             history.push(from);
             NotificationManager.success('Đăng nhập thành công!', 'Successful!');
