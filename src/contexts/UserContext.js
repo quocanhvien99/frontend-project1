@@ -6,7 +6,7 @@ export const UserProvider = (props) => {
     const [userInfo, setUserInfo] = useState({});    
     useEffect(() => {
         (async () => {
-            const res = await fetch('http://localhost:3000/api/user/info', {
+            const res = await fetch('https://api-project1-quocanh.herokuapp.com/api/user/info', {
                 credentials: 'include'
             });
             if (res.status === 200) {

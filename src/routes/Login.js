@@ -23,7 +23,7 @@ const Login = ({history, location}) => {
     const loginHandler = async () => {  
         setIsLoading(true);      
         const data = { email, password};
-        const res = await fetch('http://localhost:3000/api/user/login', {
+        const res = await fetch('https://api-project1-quocanh.herokuapp.com/api/user/login', {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             credentials: 'include',
             headers: {
