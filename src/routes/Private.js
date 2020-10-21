@@ -1,15 +1,13 @@
-import React, { useContext } from 'react';
-import { UserContext } from '../contexts/UserContext';
+import React from 'react';
+import CreateReport from '../components/report/Create';
+import ListReport from '../components/report/List';
 import './Private.css';
 
-const Private = (props) => {
-    const { userInfo } = useContext(UserContext);
-
+const Private = (props) => {    
     return (
         <div className="Private">
-            <div className="name">Tên: {userInfo.name}</div>
-            <div className="email">Email: {userInfo.email}</div>
-            <div className="date">Ngày đăng ký: {userInfo.date}</div>
+            <CreateReport />
+            <ListReport />
         </div>
     )
 }
