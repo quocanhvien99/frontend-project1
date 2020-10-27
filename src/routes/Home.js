@@ -4,11 +4,14 @@ import { UserContext } from '../contexts/UserContext';
 import LogoutButton from '../components/LogoutButton';
 import './Home.css';
 
-const Home = (props) => {   
-    const { isLogin } = useContext(UserContext);
+const Home = () => {   
+    const { isLogin, userInfo } = useContext(UserContext);
+    let renderLinkUsers = false;
+    if (!isLogin || userInfo.isAdmin) renderLinkUsers = true;
     return (
         <div className="Home">
-            <Link to="/private">Important data</Link>
+            <Link to="/reports">Reports</Link>
+            {renderLinkUsers && <Link to="/users">Users</Link>}
             {isLogin ? (<LogoutButton/>) : (<Link to="/Login">Login</Link>)}
         </div>
     )

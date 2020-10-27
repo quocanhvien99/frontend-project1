@@ -3,6 +3,7 @@ import { NotificationManager } from 'react-notifications';
 import './Register.css';
 import Modal from '../components/Modal';
 import Spinner from '../components/Spinner';
+import { API_URL } from '../CommonVar';
 
 const Register = ({ history }) => {
     const [name, setName] = useState('');
@@ -23,7 +24,7 @@ const Register = ({ history }) => {
     const registerHandler = async () => {    
         setIsLoading(true);    
         const data = { name, email, password};
-        const res = await fetch('https://api-project1-quocanh.herokuapp.com/api/user/register', {
+        const res = await fetch(`${API_URL}/api/user/register`, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             headers: {
             'Content-Type': 'application/json'

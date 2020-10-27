@@ -1,8 +1,8 @@
-import React, { useState, useContext } from 'react';
-import { ReportContext } from '../../contexts/ReportContext';
+import React, { useState } from 'react';
+import { API_URL } from '../../CommonVar';
 
-const Create = () => {
-    const { getReports } = useContext(ReportContext);
+const Create = (props) => {
+    const { getReports } = props;
     const [name, setName] = useState('');
     const [birthday, setBirthday] = useState(null);
     const [sex, setSex] = useState('male');
@@ -18,8 +18,9 @@ const Create = () => {
     const submit = (event) => {
         event.defaultValue = true;
         const data = { name, sex, birthday };
-        fetch('https://api-project1-quocanh.herokuapp.com/api/report/create', {
+        fetch(`${API_URL}/api/report/`, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            credentials: 'include',
             headers: {
             'Content-Type': 'application/json'
             },

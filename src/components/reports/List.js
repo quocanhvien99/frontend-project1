@@ -1,9 +1,14 @@
-import React, { useContext } from 'react';
-import { ReportContext } from '../../contexts/ReportContext';
+import React from 'react';
+import ReactPaginate from 'react-paginate';
+import '../ReactPagination.css';
 
-const List = () => {
-    const { reports, deleteReport } = useContext(ReportContext);   
-
+const List = (props) => {
+    const { currPage, reports, deleteReport, getReports } = props; 
+    const { data, countPages } = reports;
+    const limitPerPage = 10;
+    const onPageChangeHandle = ({selected}) => {
+        getReports(selected);
+    }
     return (
         <div className="List">
             <table>
@@ -17,9 +22,9 @@ const List = () => {
                 </tr>
                 </thead>
                 <tbody>
-                    {reports.map((item, index) => (
+                    {data.map((item, index) => (
                         <tr key={item._id}>
-                            <td>{index}</td>
+                            <td>{index + currPage*limitPerPage}</td>
                             <td>{item.name}</td>
                             <td>{item.sex}</td>
                             <td>{item.date}</td>
@@ -28,6 +33,7 @@ const List = () => {
                     ))} 
                 </tbody>
             </table>
+            <ReactPaginate pageCount={countPages} pageRangeDisplayed={3} marginPagesDisplayed={2} onPageChange={onPageChangeHandle} containerClassName="pagination"/>
         </div>
     )
 }

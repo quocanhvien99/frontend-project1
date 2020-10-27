@@ -1,4 +1,5 @@
 import React, { useState, createContext, useEffect } from 'react';
+import { API_URL } from '../CommonVar';
 
 export const UserContext = createContext();
 export const UserProvider = (props) => {
@@ -6,7 +7,7 @@ export const UserProvider = (props) => {
     const [userInfo, setUserInfo] = useState({});    
     useEffect(() => {
         (async () => {
-            const res = await fetch('https://api-project1-quocanh.herokuapp.com/api/user/info', {
+            const res = await fetch(`${API_URL}/api/user/info`, {
                 credentials: 'include'
             });
             if (res.status === 200) {
