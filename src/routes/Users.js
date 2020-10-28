@@ -31,7 +31,7 @@ const Users = () => {
             body: JSON.stringify(data) // body data type must match "Content-Type" header
         })
             .then(res => res.json())
-            .then(data => getUsers());
+            .then(data => getUsers(currPage));
     };
     useEffect(() => {
         getUsers();

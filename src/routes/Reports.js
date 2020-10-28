@@ -31,7 +31,7 @@ const Report = () => {
             body: JSON.stringify(data) // body data type must match "Content-Type" header
         })
             .then(res => res.json())
-            .then(data => getReports());
+            .then(data => getReports(currPage));
     }
     useEffect(() => {
         fetch(`${API_URL}/api/report?page=0`, {
