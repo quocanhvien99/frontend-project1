@@ -17,7 +17,9 @@ const List = (props) => {
                     <th>STT</th>
                     <th>Họ tên</th>
                     <th>Giới tính</th>
+                    <th>Ngày sinh</th>
                     <th>Ngày tạo</th>
+                    <th>Nội dung</th>
                     <th></th>
                 </tr>
                 </thead>
@@ -27,7 +29,9 @@ const List = (props) => {
                             <td>{index + currPage*limitPerPage}</td>
                             <td>{item.name}</td>
                             <td>{item.sex}</td>
+                            <td>{item.birthday}</td>
                             <td>{item.date}</td>
+                            <td>{item.content}</td>
                             <td><button onClick={(e) => deleteReport(e, item._id)}>Xóa</button></td>
                         </tr>
                     ))} 
