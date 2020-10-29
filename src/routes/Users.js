@@ -8,15 +8,15 @@ const Users = () => {
     const { userInfo } = useContext(UserContext);
     const [users, setUsers] = useState({data: [], countPages: 0});
     const [currPage, setCurrPage] = useState(0);
+    const [limitPerPage, setLimit] = useState(10);
 
-    const getUsers = (currPage = 0) => {
-        fetch(`${API_URL}/api/user/list?page=${currPage}`, {
+    const getUsers = () => {
+        fetch(`${API_URL}/api/user/list?page=${currPage}&limit=${limitPerPage}`, {
             credentials: 'include'
         })
         .then(res => res.json())
         .then(data => {
             setUsers(data);
-            setCurrPage(currPage);
         });
     };
     const deleteUser = (e, id) => {
@@ -31,15 +31,20 @@ const Users = () => {
             body: JSON.stringify(data) // body data type must match "Content-Type" header
         })
             .then(res => res.json())
-            .then(data => getUsers(currPage));
+            .then(data => getUsers());
     };
     useEffect(() => {
-        getUsers();
-    }, []);
-
+        fetch(`${API_URL}/api/user/list?page=${currPage}&limit=${limitPerPage}`, {
+            credentials: 'include'
+        })
+        .then(res => res.json())
+        .then(data => {
+            setUsers(data);
+        });        
+    }, [currPage, limitPerPage]);
     return (
         <div className="Users">
-            {userInfo.isAdmin ? (<List users={users} currPage={currPage} deleteUser={deleteUser} getUsers={getUsers} />) : (<Redirect to={{pathname: '/'}} />)}
+            {userInfo.isAdmin ? (<List users={users} currPage={currPage} deleteUser={deleteUser} setCurrPage={setCurrPage} limitPerPage={limitPerPage} setLimit={setLimit} />) : (<Redirect to={{pathname: '/'}} />)}
         </div>
     )
 };

@@ -17,7 +17,7 @@ const Create = (props) => {
     }
     const submit = (event) => {
         event.defaultValue = true;
-        const data = { name, sex, birthday };
+        const data = { name: name.toLowerCase(), sex, birthday };
         fetch(`${API_URL}/api/report/`, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             credentials: 'include',
@@ -37,8 +37,8 @@ const Create = (props) => {
             <input type="date" name="birthday" id="birthday" onChange={updateBirthday} />
             <label htmlFor="sex">Giới tính</label>
             <select id="sex" name="sex" defaultValue={sex} onChange={updateSex}>
-                <option value="male">Nam</option>
-                <option value="female">Nữ</option>
+                <option value="nam">Nam</option>
+                <option value="nữ">Nữ</option>
             </select>
             <button onClick={submit}>Tạo báo cáo</button>
         </div>

@@ -2,20 +2,26 @@ import React, { useState, useEffect } from 'react';
 import Create from '../components/reports/Create'
 import List from '../components/reports/List';
 import { API_URL } from '../CommonVar';
+import SearchForm from '../components/SearchForm';
 
 const Report = () => {
     const [reports, setReports] = useState({data: [], countPages: 0});
     const [currPage, setCurrPage] = useState(0);
-    const [search, setSearch] = useState({ by: '', keyword: '' });
+    const [search, setSearch] = useState({ field: '', keyword: '' });
+    const [limitPerPage, setLimit] = useState(10);
 
-    const getReports = (currPage = 0) => {
-        fetch(`${API_URL}/api/report?page=${currPage}&by=${search.by}&keyword=${search.keyword}`, {
+    const listField = {
+        list: ['Họ tên', 'Giới tính', 'Ngày sinh'],
+        dic: ['name', 'sex', 'birthday']
+    };
+
+    const getReports = () => {
+        fetch(`${API_URL}/api/report?page=${currPage}&field=${search.field}&keyword=${search.keyword}&limit=${limitPerPage}`, {
             credentials: 'include'
         })
         .then(res => res.json())
         .then(data => {
             setReports(data);
-            setCurrPage(currPage);
         });
         
     };
@@ -31,22 +37,23 @@ const Report = () => {
             body: JSON.stringify(data) // body data type must match "Content-Type" header
         })
             .then(res => res.json())
-            .then(data => getReports(currPage));
+            .then(data => getReports());
     }
     useEffect(() => {
-        fetch(`${API_URL}/api/report?page=0`, {
+        fetch(`${API_URL}/api/report?page=${currPage}&field=${search.field}&keyword=${search.keyword}&limit=${limitPerPage}`, {
             credentials: 'include'
         })
         .then(res => res.json())
         .then(data => {
             setReports(data);
         });
-    }, []);
-
+    }, [search, currPage, limitPerPage]);
+    console.log('render')
     return (
         <div className="Report">
             <Create getReports={getReports} />
-            <List reports={reports} currPage={currPage} deleteReport={deleteReport} getReports={getReports} />
+            <SearchForm listField={listField} setSearch={setSearch} setCurrPage={setCurrPage} />
+            <List reports={reports} currPage={currPage} deleteReport={deleteReport} setCurrPage={setCurrPage} limitPerPage={limitPerPage} setLimit={setLimit}/>
         </div>
     )
 }
