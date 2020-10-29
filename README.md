@@ -1,3 +1,7 @@
+## Lưu ý
+
+Trước khi chạy thay địa chỉ của API vào biến API_URL trong file CommonVar.js
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
