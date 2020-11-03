@@ -1,6 +1,7 @@
 .login-form {
 	box-sizing: border-box;
 	width: 500px;
+	height: fit-content;
 	padding: 20px;
 	border: 2px solid #eee;
 	border-radius: 3px;

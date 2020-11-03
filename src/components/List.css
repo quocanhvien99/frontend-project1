@@ -1,0 +1,39 @@
+.List table {
+	width: 100%;
+	border-spacing: 0 1.3rem;
+}
+.List table th {
+	text-align: left;
+}
+.List table tbody tr {
+	height: 70px;
+	box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05);
+}
+.List table tbody tr > * {
+	background-color: #fff;
+}
+.List table tbody tr > :first-child {
+	border-radius: 7px 0 0 7px;
+}
+.List table tbody tr > :last-child {
+	border-radius: 0 7px 7px 0;
+}
+.List table tr > :first-child {
+	padding-left: 30px;
+}
+.List table tr > :last-child {
+	text-align: center;
+}
+.List table .icon:hover {
+	cursor: pointer;
+	color: #ea5455;
+}
+@media only screen and (max-width: 768px) {
+	.List table {
+		width: 708px;
+	}
+	.List .table-container {
+		width: 100%;
+		overflow-x: scroll;
+	}
+}

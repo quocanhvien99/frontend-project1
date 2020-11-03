@@ -1,0 +1,14 @@
+.App {
+	display: flex;
+	background-color: #f8f8f8;
+	height: 100vh;
+}
+.App *:not(.icon) {
+	font-family: sans-serif;
+}
+.App .right-side-container {
+	flex-grow: 1;
+	padding: 20px 30px;
+	overflow-x: hidden;
+	box-sizing: border-box;
+}

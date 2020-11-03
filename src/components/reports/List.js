@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
 import '../ReactPagination.css';
+import '../List.css'
 
 const List = (props) => {
     const { currPage, reports, deleteReport, setCurrPage, limitPerPage, setLimit } = props; 
@@ -26,32 +27,39 @@ const List = (props) => {
                 <option value="20">20</option>
                 <option value="30">30</option>
             </select>
-            <table>
-                <thead>
-                <tr>
-                    <th>STT</th>
-                    <th>Họ tên</th>
-                    <th>Giới tính</th>
-                    <th>Ngày sinh</th>
-                    <th>Ngày tạo</th>
-                    <th>Nội dung</th>
-                    <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                    {data.map((item, index) => (
-                        <tr key={item._id}>
-                            <td>{index + currPage*limitPerPage}</td>
-                            <td style={{'text-transform': 'capitalize'}}>{item.name}</td>
-                            <td style={{'text-transform': 'capitalize'}}>{item.sex}</td>
-                            <td>{formatDate(item.birthday)}</td>
-                            <td>{formatDate(item.date)}</td>
-                            <td>{item.content}</td>
-                            <td><button onClick={(e) => deleteReport(e, item._id)}>Xóa</button></td>
-                        </tr>
-                    ))} 
-                </tbody>
-            </table>
+            <div className="table-container">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Họ tên</th>
+                        <th>Giới tính</th>
+                        <th>Ngày sinh</th>
+                        <th>Ngày tạo</th>
+                        <th>Nội dung</th>
+                        <th>Hành động</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        {data.map((item, index) => (
+                            <tr key={item._id}>
+                                <td>{index + currPage*limitPerPage}</td>
+                                <td style={{'textTransform': 'capitalize'}}>{item.name}</td>
+                                <td style={{'textTransform': 'capitalize'}}>{item.sex}</td>
+                                <td>{formatDate(item.birthday)}</td>
+                                <td>{formatDate(item.date)}</td>
+                                <td>{item.content}</td>
+                                <td>
+                                    <span className="material-icons icon" onClick={(e) => deleteReport(e, item._id)}>
+                                        delete_outline
+                                    </span>
+                                </td>
+                            </tr>
+                        ))} 
+                    </tbody>
+                </table>
+            </div>
+            
             <ReactPaginate pageCount={countPages} pageRangeDisplayed={3} marginPagesDisplayed={2} onPageChange={onPageChangeHandle} containerClassName="pagination"/>
         </div>
     )

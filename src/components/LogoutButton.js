@@ -3,7 +3,7 @@ import { NotificationManager } from 'react-notifications';
 import { UserContext } from '../contexts/UserContext';
 import { API_URL } from '../CommonVar';
 
-const LogoutButton = () => {
+const LogoutButton = ({ className }) => {
     const { setIsLogin } = useContext(UserContext);
     const logoutHandler = (e) => {
         e.preventDefault();        
@@ -16,7 +16,12 @@ const LogoutButton = () => {
             })      
     };
 
-    return (<button onClick={logoutHandler}>Logout</button>);
-}
+    return (
+    <div className={className} onClick={logoutHandler}>
+        <i className="fas fa-sign-out-alt icon"></i>
+        <span>Đăng xuất</span>
+    </div>
+    )
+};
 
 export default LogoutButton;

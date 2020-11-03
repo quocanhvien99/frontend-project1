@@ -1,0 +1,96 @@
+.SideBar .SideBar-Container {
+	width: 260px;
+	height: 100vh;
+	background-color: #fff;
+	box-shadow: 1px 0 5px 3px #f1f1f1;
+	font-size: large;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	padding: 0 15px;
+	transition: transform linear 0.2s;
+}
+.SideBar-Container > .logo {
+	height: 80px;
+	margin-bottom: 20px;
+	display: flex;
+	align-items: center;
+}
+.SideBar-Container a {
+	text-decoration: none;
+	color: #565656;
+}
+.SideBar-Container .sidebar-item {
+	height: 45px;
+	box-sizing: border-box;
+	padding: 10px 15px;
+	display: flex;
+	align-items: center;
+	transition: padding 0.2s linear;
+}
+.SideBar-Container .sidebar-item:hover {
+	padding-left: 20px;
+}
+.SideBar-Container .selected .sidebar-item {
+	background: linear-gradient(
+		90deg,
+		rgba(119, 107, 241, 1) 34%,
+		rgba(128, 117, 241, 1) 51%,
+		rgba(139, 129, 242, 1) 72%,
+		rgba(153, 144, 243, 1) 100%
+	);
+	color: #fff;
+	border-radius: 4px;
+	box-shadow: 0 0 10px 4px #cac5f9;
+}
+.sidebar-item .material-icons,
+.fas {
+	margin-right: 15px;
+}
+.SideBar-Container .logout-btn {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column-reverse;
+}
+.SideBar-Container .logout-btn div {
+	cursor: pointer;
+}
+
+@media only screen and (max-width: 1200px) {
+	.SideBar {
+		width: 100%;
+		height: 100vh;
+		position: fixed;
+		top: 0;
+		left: 0;
+		visibility: hidden;
+		background-color: rgba(0, 0, 0, 0.2);
+		transition: visibility linear 0.3s;
+	}
+	.SideBar .SideBar-Container {
+		box-shadow: none;
+		transform: translateX(-100%);
+	}
+	.SideBar-active {
+		visibility: visible;
+	}
+	.SideBar .SideBar-Container-Active {
+		transform: translateX(0);
+	}
+	.SideBar .close-btn {
+		margin-left: auto;
+		cursor: pointer;
+	}
+	.SideBar .close-btn div {
+		background-color: #776bf1;
+		width: 18px;
+		height: 2px;
+		margin: 5px;
+	}
+	.SideBar .close-btn .line1 {
+		transform: rotate(45deg) translateY(5px);
+	}
+	.SideBar .close-btn .line2 {
+		transform: rotate(-45deg) translateY(-5px);
+	}
+}
