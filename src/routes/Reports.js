@@ -3,6 +3,7 @@ import Create from '../components/reports/Create'
 import List from '../components/reports/List';
 import { API_URL } from '../CommonVar';
 import SearchForm from '../components/SearchForm';
+import './Reports.css';
 
 const Report = () => {
     const [reports, setReports] = useState({data: [], countPages: 0});

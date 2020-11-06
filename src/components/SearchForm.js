@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './SearchForm.css';
 
 const SearchForm = ({ listField, setSearch,setCurrPage }) => {
     const { list, dic } = listField;
@@ -18,12 +19,15 @@ const SearchForm = ({ listField, setSearch,setCurrPage }) => {
     }
     return (
         <div className="SearchForm">
-            <label htmlFor="keyword">Tìm kiếm: </label>
-            <input id="keyword" type={(field === 'birthday') ? 'date' : 'text' } onChange={updateKeyword} value={keyword} />
             <select id="field" value={field}  onChange={updateField}>
                 {list.map((item, index) => (<option key={index} value={dic[index]}>{item}</option>))}
             </select>
-            <button onClick={handelClick}>Tìm</button>
+            <input id="keyword" type={(field === 'birthday') ? 'date' : 'text' } onChange={updateKeyword} value={keyword} />            
+            <button onClick={handelClick}>
+                <span className="material-icons icon">
+                    search
+                </span>
+            </button>
         </div>
     )
 }

@@ -1,3 +1,6 @@
+.SideBar {
+	z-index: 1;
+}
 .SideBar .SideBar-Container {
 	width: 260px;
 	height: 100vh;
@@ -10,11 +13,16 @@
 	padding: 0 15px;
 	transition: transform linear 0.2s;
 }
-.SideBar-Container > .logo {
+.SideBar-Container > .header {
 	height: 80px;
 	margin-bottom: 20px;
 	display: flex;
 	align-items: center;
+}
+.SideBar-Container .header .logo {
+	color: #7367f0;
+	font-weight: 600;
+	padding-left: 20px;
 }
 .SideBar-Container a {
 	text-decoration: none;

@@ -1,0 +1,89 @@
+.CreateReport {
+	width: fit-content;
+	position: absolute;
+}
+.CreateReport .create-btn {
+	height: 39px;
+	display: flex;
+	align-items: center;
+	padding: 0 20px;
+	border: #7367f0 solid 1px;
+	border-radius: 5px;
+	color: #7367f0;
+	cursor: pointer;
+}
+.CreateReport .Create-Form {
+	opacity: 0;
+	visibility: hidden;
+	height: 100vh;
+	width: 100vw;
+	position: fixed;
+	top: 0;
+	right: 0;
+	z-index: 2;
+	background-color: rgba(0, 0, 0, 0.5);
+	transition: all linear 0.2s;
+}
+.CreateReport .Create-Form-Active {
+	opacity: 1;
+	visibility: visible;
+}
+.CreateReport .Create-Form .container {
+	width: 600px;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	background-color: #fff;
+	padding: 40px 80px;
+	margin: 0 auto;
+	border-radius: 5px;
+	transform: translateY(20vh);
+}
+.CreateReport .Create-Form .container > * {
+	margin-bottom: 10px;
+	font-size: large;
+}
+.CreateReport .Create-Form .container > *:last-child {
+	margin-top: 20px;
+}
+.CreateReport .Create-Form .container input,
+#sex {
+	font-size: large;
+	padding: 5px 10px;
+}
+.CreateReport .Create-Form .container button {
+	border-radius: 3px;
+	background-color: #7367f0;
+	color: #fff;
+	font-weight: bold;
+	text-align: center;
+	padding: 10px 0;
+	cursor: pointer;
+}
+.CreateReport .Create-Form .container button:active {
+	box-shadow: 0 0 0 3px #8f8ac3;
+}
+.CreateReport .Create-Form .container .close-btn {
+	width: 20px;
+	text-align: center;
+	margin-left: auto;
+	transform: translateX(100%);
+	cursor: pointer;
+}
+.CreateReport .Create-Form .container .close-btn:hover {
+	color: #7367f0;
+}
+@media only screen and (max-width: 576px) {
+	.CreateReport {
+		position: static;
+		margin-bottom: 20px;
+	}
+	.CreateReport .create-btn {
+		background-color: #7367f0;
+		color: #fff;
+	}
+	.CreateReport .Create-Form .container {
+		width: 100%;
+		padding: 20px 40px;
+	}
+}

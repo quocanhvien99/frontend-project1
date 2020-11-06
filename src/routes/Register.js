@@ -4,6 +4,7 @@ import './Register.css';
 import Modal from '../components/Modal';
 import Spinner from '../components/Spinner';
 import { API_URL } from '../CommonVar';
+import { Link } from 'react-router-dom';
 
 const Register = ({ history }) => {
     const [name, setName] = useState('');
@@ -53,6 +54,7 @@ const Register = ({ history }) => {
                 <label htmlFor="password">Mật khẩu</label>
                 <input type="password" name="password" id="password" onChange={updatePassword} value={password}/>
                 <div id="submit-btn" onClick={registerHandler}>Đăng Ký</div>
+                <p>Quay lại trang <Link to="/login">đăng nhập</Link></p>
             </form>
             <Modal {...modalState} setModel={setModal} />
             {isLoading && <Spinner/>}

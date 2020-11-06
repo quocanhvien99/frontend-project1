@@ -1,9 +1,9 @@
 .Register {
 	box-sizing: border-box;
 	width: 500px;
+	background-color: #fff;
+	box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.1);
 	padding: 20px;
-	border: 2px solid #eee;
-	border-radius: 3px;
 	margin: 0 auto;
 	font-family: sans-serif;
 	position: relative;
@@ -32,11 +32,11 @@
 	margin-bottom: 15px;
 }
 .Register form input:focus {
-	border: 3px solid #fbd6da;
+	border: 2px solid #8f8ac3;
 }
 .Register form #submit-btn {
 	border-radius: 3px;
-	background-color: #e75d5c;
+	background-color: #7367f0;
 	color: #fff;
 	font-weight: bold;
 	text-align: center;
@@ -45,11 +45,22 @@
 	cursor: pointer;
 }
 .Register form #submit-btn:active {
-	box-shadow: 0 0 0 3px #fbd6da;
+	box-shadow: 0 0 0 3px #8f8ac3;
+}
+.Register p {
+	font-size: large;
+}
+.Register p a {
+	color: #8f8ac3;
+	text-decoration: none;
+	display: inline;
+	font-size: large;
 }
 
 @media screen and (max-width: 576px) {
 	.Register {
-		border: none;
+		width: 100%;
+		background-color: #f8f8f8;
+		box-shadow: none;
 	}
 }

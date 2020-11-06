@@ -1,3 +1,14 @@
+.List {
+	display: flex;
+	flex-direction: column;
+	margin-top: 10px;
+}
+.List #limit {
+	border: #dae1e7 solid 1px;
+	align-self: flex-end;
+	padding: 10px 13px;
+	border-radius: 20px;
+}
 .List table {
 	width: 100%;
 	border-spacing: 0 1.3rem;
@@ -35,5 +46,8 @@
 	.List .table-container {
 		width: 100%;
 		overflow-x: scroll;
+	}
+	.List #limit {
+		display: none;
 	}
 }
