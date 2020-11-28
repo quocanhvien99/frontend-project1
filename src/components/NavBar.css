@@ -1,13 +1,15 @@
 .NavBar {
 	display: flex;
 	height: 60px;
+	width: fit-content;
+	margin-left: auto;
 	background-color: #fff;
 	box-sizing: border-box;
 	border-radius: 4px;
 	box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05);
 	margin-bottom: 30px;
 	align-items: center;
-	padding: 11px 14px;
+	padding: 11px 20px;
 }
 .NavBar .hamburger {
 	height: fit-content;
@@ -21,8 +23,36 @@
 	width: 20px;
 	margin: 4px;
 }
+.NavBar .user-info {
+	margin-left: auto;
+	display: flex;
+	align-items: center;
+	text-align: right;
+}
+.NavBar .user-info .info {
+	margin-right: 10px;
+}
+.NavBar .user-info .info div:first-child {
+	font-size: large;
+	color: #666;
+}
+.NavBar .user-info .info div:last-child {
+	font-size: smaller;
+	color: #999;
+}
+.NavBar .user-info .icon {
+	font-size: xx-large;
+	color: #666;
+}
 
 @media only screen and (max-width: 1200px) {
+	.NavBar {
+		width: 100%;
+		padding: 11px 13px;
+	}
+	.NavBar .user-info {
+		display: none;
+	}
 	.NavBar .hamburger {
 		display: block;
 	}

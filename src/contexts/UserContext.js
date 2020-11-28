@@ -1,12 +1,15 @@
 import React, { useState, createContext, useEffect } from 'react';
 import { API_URL } from '../CommonVar';
+import Spinner from '../components/Spinner';
 
 export const UserContext = createContext();
 export const UserProvider = (props) => {
     const [isLogin, setIsLogin] = useState(false);
-    const [userInfo, setUserInfo] = useState({});    
-    useEffect(() => {
-        (async () => {
+    const [userInfo, setUserInfo] = useState({});   
+    const [isFetching, setIsFetching] = useState(true); 
+    useEffect(() => {        
+        (async () => { 
+            setIsFetching(true);           
             const res = await fetch(`${API_URL}/api/user/info`, {
                 credentials: 'include'
             });
@@ -15,13 +18,13 @@ export const UserProvider = (props) => {
                 const resData = await res.json();
                 setUserInfo(resData);
             }
+            setIsFetching(false);
         })();
     }, [isLogin])
-    
-    
+        
     return (
         <UserContext.Provider value={{ isLogin, setIsLogin, userInfo }}>
-            {props.children}
+            {isFetching ? <Spinner /> : props.children}
         </UserContext.Provider>
     )
 }

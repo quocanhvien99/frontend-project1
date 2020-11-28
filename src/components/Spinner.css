@@ -47,7 +47,7 @@
 }
 @media screen and (max-width: 768px) {
 	.loader .circle {
-		transform: scale(2, 2);
+		transform: scale(2, 2) translateX(-25%);
 	}
 }
 @keyframes spin {

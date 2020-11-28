@@ -1,0 +1,51 @@
+.chart-container {
+	height: 60vh;
+}
+.select-year {
+	box-sizing: border-box;
+	width: 100px;
+	margin: 30px auto 0 auto;
+	position: relative;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 10px 5px 10px 15px;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+.select-year span:first-child {
+	margin-right: 13px;
+}
+.select-year > .icon {
+	color: #dccc;
+	transition: transform 0.2s;
+}
+.select-year > ul {
+	width: 100%;
+	box-sizing: border-box;
+	display: block;
+	padding-left: 0;
+	position: absolute;
+	top: 100%;
+	right: 0;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s;
+}
+.select-year > ul li {
+	margin: 0;
+	padding: 10px 0 10px 15px;
+}
+.select-year > ul li:hover {
+	background-color: #eee;
+}
+.select-year > .icon.focus {
+	transform: rotate(180deg);
+}
+.select-year > ul.focus {
+	opacity: 1;
+	visibility: visible;
+}
