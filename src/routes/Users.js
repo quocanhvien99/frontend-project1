@@ -8,7 +8,7 @@ const Users = () => {
     const { userInfo } = useContext(UserContext);
     const [users, setUsers] = useState({data: [], countPages: 0});
     const [currPage, setCurrPage] = useState(0);
-    const [limitPerPage, setLimit] = useState(10);
+    const [limitPerPage, setLimit] = useState(5);
 
     const getUsers = () => {
         fetch(`${API_URL}/api/user/list?page=${currPage}&limit=${limitPerPage}`, {

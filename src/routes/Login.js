@@ -6,6 +6,7 @@ import { API_URL } from '../CommonVar';
 import './Login.css';
 import Modal from '../components/Modal';
 import Spinner from '../components/Spinner';
+import logo from '../logo/google.webp'
 
 const Login = ({history, location}) => {
     const [email, setEmail] = useState('');
@@ -21,10 +22,16 @@ const Login = ({history, location}) => {
     const updatePassword = (event) => {
         setPassword(event.target.value);
     };
+    const googleLogin = () => {
+        window.open(`${API_URL}/api/auth/google/`, '_self');
+    }
+    const facebookLogin = () => {
+        window.open(`${API_URL}/api/auth/facebook/`, '_self');
+    }
     const loginHandler = async () => {  
         setIsLoading(true);      
         const data = { email, password };
-        const res = await fetch(`${API_URL}/api/user/login`, {
+        const res = await fetch(`${API_URL}/api/auth/login`, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             credentials: 'include',
             headers: {
@@ -55,7 +62,20 @@ const Login = ({history, location}) => {
                 <input type="email" name="email" id="email" onChange={updateEmail} value={email}/>
                 <label htmlFor="password">Mật khẩu</label>
                 <input type="password" name="password" id="password" onChange={updatePassword} value={password}/>
-                <div id="submit-btn" onClick={loginHandler}>Đăng Nhập</div> 
+                <div id="submit-btn" onClick={loginHandler}>ĐĂNG NHẬP</div>
+                <h1>HOẶC</h1>
+                <div class="other-login">
+                    <div class="google-btn btn" onClick={googleLogin}>
+                        <div className="logo">
+                            <img src={logo} alt="google-login" />
+                        </div>
+                        <div>Google</div>
+                    </div>
+                    <div class="facebook-btn btn" onClick={facebookLogin}>
+                        <span className="material-icons icon">facebook</span>
+                        <div>Facebook</div>
+                    </div>
+                </div>
                 <p>Chưa có tài khoản? <Link to="/register">Đăng ký</Link></p>
             </form>
             <Modal {...modalState} setModel={setModal} />

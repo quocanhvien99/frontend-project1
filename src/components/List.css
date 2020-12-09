@@ -35,7 +35,14 @@
 .List table tr > :last-child {
 	text-align: center;
 }
-.List table .icon:hover {
+.List table .icon:first-child {
+	margin-right: 10px;
+}
+.List table .icon:first-child:hover {
+	cursor: pointer;
+	color: #867bf3;
+}
+.List table .icon:last-child:hover {
 	cursor: pointer;
 	color: #ea5455;
 }

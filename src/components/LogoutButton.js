@@ -7,7 +7,7 @@ const LogoutButton = ({ className }) => {
     const { setIsLogin } = useContext(UserContext);
     const logoutHandler = (e) => {
         e.preventDefault();        
-        fetch(`${API_URL}/api/user/logout`, {
+        fetch(`${API_URL}/api/auth/logout`, {
             credentials: 'include'
         })
             .then(() => {

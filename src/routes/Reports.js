@@ -9,7 +9,7 @@ const Report = () => {
     const [reports, setReports] = useState({data: [], countPages: 0});
     const [currPage, setCurrPage] = useState(0);
     const [search, setSearch] = useState({ field: '', keyword: '' });
-    const [limitPerPage, setLimit] = useState(10);
+    const [limitPerPage, setLimit] = useState(5);
 
     const listField = {
         list: ['Họ tên', 'Giới tính', 'Ngày sinh'],

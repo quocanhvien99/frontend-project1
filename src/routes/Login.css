@@ -47,7 +47,61 @@
 .login-form form #submit-btn:active {
 	box-shadow: 0 0 0 3px #8f8ac3;
 }
-.login-form p {
+.login-form h1 {
+	font-weight: 500;
+	font-size: small;
+	color: #aaa;
+	text-align: center;
+	margin: 20px 0;
+}
+.login-form form .other-login {
+	display: flex;
+}
+.login-form form .other-login .google-btn {
+	background-color: #4181ea;
+	margin-right: 5px;
+}
+.login-form form .other-login .google-btn:hover {
+	background-color: #5390f5;
+}
+.login-form form .other-login .btn {
+	display: flex;
+	box-sizing: border-box;
+	height: 38px;
+	border-radius: 3px;
+	padding: 2px;
+	border: none;
+	align-items: center;
+	color: #fff;
+	font-size: large;
+	outline: none;
+	cursor: pointer;
+}
+.login-form form .other-login .btn div:last-child {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.login-form form .other-login .logo {
+	width: 36px;
+	padding: 7px;
+	box-sizing: border-box;
+	background-color: #fff;
+}
+.login-form form .other-login .facebook-btn {
+	background-color: #1877f2;
+	margin-left: 5px;
+}
+.login-form form .other-login .facebook-btn:hover {
+	background-color: #2d83f3;
+}
+.login-form form .other-login .facebook-btn span {
+	width: 32px;
+	font-size: x-large;
+	margin-left: 2px;
+}
+
+.login-form p:last-child {
 	font-size: large;
 }
 .login-form p a {
