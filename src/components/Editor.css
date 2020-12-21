@@ -1,0 +1,20 @@
+.ck-editor__editable {
+	min-height: 200px !important;
+}
+.Editor p {
+	display: flex;
+	align-items: center;
+	width: fit-content;
+	margin-bottom: 30px;
+}
+.Editor #number {
+	padding: 5px 10px;
+	margin-bottom: 20px;
+	font-size: large;
+	outline-color: #776bf1;
+}
+.Editor button {
+	width: 100px;
+	height: 30px;
+	margin: 10px 0;
+}

@@ -1,0 +1,22 @@
+.Content #key {
+	padding: 5px 10px;
+	margin-bottom: 20px;
+}
+.Content .create-btn {
+	height: 39px;
+	width: fit-content;
+	display: flex;
+	align-items: center;
+	padding: 0 20px;
+	border: #7367f0 solid 1px;
+	border-radius: 5px;
+	color: #7367f0;
+	cursor: pointer;
+}
+
+@media only screen and (max-width: 576px) {
+	.Content .create-btn {
+		background-color: #7367f0;
+		color: #fff;
+	}
+}

@@ -8,11 +8,13 @@ import Register from './routes/Register';
 import Reports from './routes/Reports';
 import Users from './routes/Users';
 import Statistic from './routes/Statistic';
+import Content from './routes/Content';
 import SideBar from './components/SideBar';
 import { UserContext } from './contexts/UserContext';
 import 'react-notifications/lib/notifications.css';
 import './App.css';
 import NavBar from './components/NavBar';
+
 
 function App() {
   const { isLogin } = useContext(UserContext);
@@ -31,6 +33,7 @@ function App() {
             <ProtectedRoute exact path="/reports" component={Reports} />
             <ProtectedRoute exact path="/users" component={Users} />
             <ProtectedRoute exact path="/statistic" component={Statistic} />
+            <ProtectedRoute exact path="/content" component={Content} />
           </Switch>
         </div>
         <NotificationContainer />

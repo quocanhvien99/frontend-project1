@@ -20,7 +20,6 @@ const List = (props) => {
     }
     return (
         <div className="List">
-            <label htmlFor="limit">Số dòng </label>
             <select id="limit" value={limitPerPage} onChange={updateLimit}>
                 <option value="5">5</option>
                 <option value="10">10</option>

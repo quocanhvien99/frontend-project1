@@ -35,6 +35,12 @@ const SideBar = ({ activeSideBar, setActiveSideBar }) => {
                         <span>Người dùng</span>
                     </div>
                 </NavLink>)}
+                {userInfo.isAdmin && (<NavLink to="/content" activeClassName="selected">
+                    <div className="sidebar-item">
+                        <span className="material-icons-outlined icon">text_snippet</span>
+                        <span>Nội dung</span>
+                    </div>
+                </NavLink>)}
                 <div className="logout-btn">
                     <LogoutButton className="sidebar-item" />
                 </div>

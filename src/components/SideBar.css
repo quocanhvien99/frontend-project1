@@ -52,6 +52,7 @@
 	box-shadow: 0 0 10px 4px #cac5f9;
 }
 .sidebar-item .material-icons,
+.material-icons-outlined,
 .fas {
 	margin-right: 15px;
 }
