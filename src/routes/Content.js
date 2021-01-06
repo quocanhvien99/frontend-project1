@@ -8,7 +8,7 @@ import '../components/List.css';
 const Content = () => {
     const [isCreateNew, setIsCreateNew] = useState(false);
     const [isEdit, setIsEdit] = useState({active: false, data: {}});
-    const [keyword, setKeyword] = useState('SỐ SỨ MỆNH');
+    const [keyword, setKeyword] = useState('ĐƯỜNG ĐỜI');
     const [content, setContent] = useState({data: [], countPages: 0});
     const [currPage, setCurrPage] = useState(0);
     const [limitPerPage, setLimit] = useState(5);
@@ -60,19 +60,24 @@ const Content = () => {
     };
 
     const listKey = [
-        'SỐ SỨ MỆNH',
+        'ĐƯỜNG ĐỜI',
+        'SỨ MỆNH',
+        'TRƯỞNG THÀNH',
+        'CẦU NỐI ĐƯỜNG ĐỜI/SỨ MỆNH',
+        'SỐ NGÀY SINH',
         'KHÁT TÂM',
         'NHÂN CÁCH',
         'CẦU NỐI KHÁT TÂM/NHÂN CÁCH',
-        'CON SỐ ĐƯỜNG ĐỜI',
-        'SỐ NGÀY SINH',
-        'THÁCH THỨC 1',
-        'THÁCH THỨC 2',
-        'THÁCH THỨC 3',
-        'THÁCH THỨC 4',
-        'CẦU NỐI ĐƯỜNG ĐỜI/SỨ MỆNH',
-        'TRƯỞNG THÀNH',
+        'ĐAM MÊ TIỀM ẨN',
+        'BÀI HỌC CUỘC SỐNG',
+        'TIỀM THỨC ẨN',
         'SỐ SUY NGHĨ HỢP LÝ',
+        'SỐ CÂN BẰNG',
+        'NỀN TẢNG',
+        'THỂ CHẤT',
+        'TINH THẦN',
+        'CẢM XÚC',
+        'TRỰC GIÁC',
         'CHU KỲ 1',
         'CHU KỲ 2',
         'CHU KỲ 3',
@@ -80,21 +85,13 @@ const Content = () => {
         'ĐỈNH CAO 2',
         'ĐỈNH CAO 3',
         'ĐỈNH CAO 4',
-        'SỐ CÂN BẰNG',
-        'ĐAM MÊ TIỀM ẨN',
-        'NỀN TẢNG',
-        'TIỀM THỨC ẨN',
-        'CẤP ĐỘ VẬT LÝ',
-        'CẤP ĐỘ TINH THẦN',
-        'CẤP ĐỘ CẢM XÚC',
-        'CẤP ĐỘ TRỰC GIÁC',
-        'NĂM CÁ NHÂN 2020',
+        'THÁCH THỨC 1',
+        'THÁCH THỨC 2',
+        'THÁCH THỨC 3',
+        'THÁCH THỨC 4',
         'NĂM CÁ NHÂN 2021',
         'NĂM CÁ NHÂN 2022',
-        'CHU KỲ TINH HOA 2020',
-        'CHU KỲ TINH HOA 2021',
-        'CHU KỲ TINH HOA 2022',
-     
+        'NĂM CÁ NHÂN 2023'     
     ];
     return (
         <div className="Content">
