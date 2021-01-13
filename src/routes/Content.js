@@ -60,10 +60,6 @@ const Content = () => {
 	const onPageChangeHandle = ({ selected }) => {
 		setCurrPage(selected);
 	};
-	const updateLimit = (event) => {
-		setLimit(event.target.value);
-		setCurrPage(0);
-	};
 
 	const listKey = [
 		'ĐƯỜNG ĐỜI',

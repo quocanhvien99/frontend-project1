@@ -12,6 +12,7 @@
 	visibility: hidden;
 	opacity: 0;
 	transition: visibility 0s, opacity 0.5s;
+	z-index: 4;
 }
 .Modal-active {
 	visibility: visible;

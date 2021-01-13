@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { API_URL } from '../../apiURL';
+import Modal from '../Modal';
 import './Create.css';
 
 const Create = (props) => {
 	const { getReports } = props;
 	const [name, setName] = useState('');
-	const [birthday, setBirthday] = useState(null);
+	const [birthday, setBirthday] = useState(Date.now());
 	const [sex, setSex] = useState('nam');
 	const [openForm, setOpenForm] = useState(false);
+	const [modalState, setModal] = useState({ isActive: false });
 
 	const updateName = (event) => {
 		setName(event.target.value);
@@ -28,11 +30,16 @@ const Create = (props) => {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify(data), // body data type must match "Content-Type" header
-		}).then((res) => {
+		}).then(async (res) => {
+			if (res.status !== 200) {
+				const resData = await res.text();
+				setModal({ isActive: true, content: resData });
+				return;
+			}
 			getReports();
 			setOpenForm(false);
 			setName('');
-			setBirthday(null);
+			setBirthday(Date.now());
 			setSex('nam');
 		});
 	};
@@ -49,13 +56,20 @@ const Create = (props) => {
 						X
 					</span>
 					<label htmlFor="name">Họ tên</label>
-					<input type="text" name="name" id="name" onChange={updateName} />
+					<input
+						type="text"
+						name="name"
+						id="name"
+						onChange={updateName}
+						value={name}
+					/>
 					<label htmlFor="birthday">Ngày sinh</label>
 					<input
 						type="date"
 						name="birthday"
 						id="birthday"
 						onChange={updateBirthday}
+						value={birthday}
 					/>
 					<label htmlFor="sex">Giới tính</label>
 					<select id="sex" name="sex" defaultValue={sex} onChange={updateSex}>
@@ -65,6 +79,7 @@ const Create = (props) => {
 					<button onClick={submit}>Tạo báo cáo</button>
 				</div>
 			</div>
+			<Modal {...modalState} setModel={setModal} />
 		</div>
 	);
 };
