@@ -1,6 +1,6 @@
 ## Lưu ý
 
-Trước khi chạy thay địa chỉ của API vào biến API_URL trong file CommonVar.js
+Trước khi chạy thay địa chỉ của API vào biến API_URL trong file apiURL.js
 
 ##
 
