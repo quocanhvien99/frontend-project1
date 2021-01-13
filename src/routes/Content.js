@@ -55,6 +55,7 @@ const Content = () => {
 	}, [keyword, currPage, limitPerPage, isCreateNew, isEdit]);
 
 	const updateKey = (event) => {
+		setCurrPage(0);
 		setKeyword(event.target.value);
 	};
 	const onPageChangeHandle = ({ selected }) => {
