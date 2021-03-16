@@ -158,7 +158,7 @@ const Content = () => {
 				</div>
 			) : (
 				<Editor
-					key={key}
+					keyword={key}
 					setIsCreateNew={setIsCreateNew}
 					isEdit={isEdit}
 					setIsEdit={setIsEdit}
