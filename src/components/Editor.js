@@ -5,7 +5,7 @@ import { API_URL } from '../apiURL';
 import './Editor.css';
 import Modal from './Modal';
 
-const Editor = ({ keyword, setIsCreateNew, isEdit, setIsEdit }) => {
+const Editor = ({ key, setIsCreateNew, isEdit, setIsEdit }) => {
 	const [number, setNumber] = useState(isEdit.data.number || '');
 	const [content, setContent] = useState(isEdit.data.content || '');
 	const [modalState, setModal] = useState({ isActive: false });
@@ -30,7 +30,7 @@ const Editor = ({ keyword, setIsCreateNew, isEdit, setIsEdit }) => {
 				setIsEdit({ active: false, data: {} });
 			});
 		} else {
-			const data = { number, content, key: keyword };
+			const data = { number, content, key: key };
 			fetch(`${API_URL}/api/content`, {
 				method: 'POST',
 				credentials: 'include',

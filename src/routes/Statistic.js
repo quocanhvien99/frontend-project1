@@ -5,7 +5,7 @@ import './Statistic.css';
 
 const Statistic = () => {
 	const [data, setData] = useState({});
-	const [year, setYear] = useState(2020);
+	const [year, setYear] = useState(new Date(Date.now()).getUTCFullYear());
 	const [isFocus, setFocus] = useState(false);
 
 	let listYear = [];

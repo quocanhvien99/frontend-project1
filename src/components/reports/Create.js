@@ -10,6 +10,7 @@ const Create = (props) => {
 	const [sex, setSex] = useState('nam');
 	const [openForm, setOpenForm] = useState(false);
 	const [modalState, setModal] = useState({ isActive: false });
+	const [isFetching, setIsFetching] = useState(false);
 
 	const updateName = (event) => {
 		setName(event.target.value);
@@ -22,6 +23,7 @@ const Create = (props) => {
 	};
 	const submit = (event) => {
 		event.defaultValue = true;
+		setIsFetching(true);
 		const data = { name: name.toLowerCase(), sex, birthday };
 		fetch(`${API_URL}/api/report/`, {
 			method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -31,6 +33,7 @@ const Create = (props) => {
 			},
 			body: JSON.stringify(data), // body data type must match "Content-Type" header
 		}).then(async (res) => {
+			setIsFetching(false);
 			if (res.status !== 200) {
 				const resData = await res.text();
 				setModal({ isActive: true, content: resData });
@@ -51,33 +54,47 @@ const Create = (props) => {
 			</div>
 			<div
 				className={openForm ? 'Create-Form Create-Form-Active' : 'Create-Form'}>
-				<div className="container">
-					<span className="close-btn" onClick={() => setOpenForm(false)}>
-						X
-					</span>
-					<label htmlFor="name">Họ tên</label>
-					<input
-						type="text"
-						name="name"
-						id="name"
-						onChange={updateName}
-						value={name}
-					/>
-					<label htmlFor="birthday">Ngày sinh</label>
-					<input
-						type="date"
-						name="birthday"
-						id="birthday"
-						onChange={updateBirthday}
-						value={birthday}
-					/>
-					<label htmlFor="sex">Giới tính</label>
-					<select id="sex" name="sex" defaultValue={sex} onChange={updateSex}>
-						<option value="nam">Nam</option>
-						<option value="nữ">Nữ</option>
-					</select>
-					<button onClick={submit}>Tạo báo cáo</button>
-				</div>
+				{isFetching ? (
+					<div className="container">
+						<span className="close-btn" onClick={() => setOpenForm(false)}>
+							X
+						</span>
+						<div class="loading">
+							<p>Đang tạo báo cáo</p>
+							<p className="dot">.</p>
+							<p className="dot">.</p>
+							<p className="dot">.</p>
+						</div>
+					</div>
+				) : (
+					<div className="container">
+						<span className="close-btn" onClick={() => setOpenForm(false)}>
+							X
+						</span>
+						<label htmlFor="name">Họ tên</label>
+						<input
+							type="text"
+							name="name"
+							id="name"
+							onChange={updateName}
+							value={name}
+						/>
+						<label htmlFor="birthday">Ngày sinh</label>
+						<input
+							type="date"
+							name="birthday"
+							id="birthday"
+							onChange={updateBirthday}
+							value={birthday}
+						/>
+						<label htmlFor="sex">Giới tính</label>
+						<select id="sex" name="sex" defaultValue={sex} onChange={updateSex}>
+							<option value="nam">Nam</option>
+							<option value="nữ">Nữ</option>
+						</select>
+						<button onClick={submit}>Tạo báo cáo</button>
+					</div>
+				)}
 			</div>
 			<Modal {...modalState} setModel={setModal} />
 		</div>
